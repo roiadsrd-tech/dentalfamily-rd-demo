@@ -5,24 +5,25 @@ const BRAND_CONFIG = {
   "initial": "D",
   "schematicType": "dental-3d-anatomy",
   "strokeWidth": 2,
-  "accentHex": "#3B82F6",
-  "goldHex": "#D97706",
-  "bgDarkHex": "#1E293B",
-  "textLightHex": "#F8FAFC",
+  "accentHex": "#5B9BD5",
+  "goldHex": "#C5A059",
+  "bgDarkHex": "#0F172A",
+  "textLightHex": "#FFFFFF",
   "geometryStyle": "organic-minimal",
-  "cornerRadius": "12px",
-  "title": "Digital Smile Architecture",
-  "subtitle": "Interactive 3D wireframe demonstrating the alignment and structural planning of orthodontic treatments.",
+  "cornerRadius": "999px",
+  "title": "Digital Smile Mapping v.2.0",
+  "subtitle": "Análisis de proporciones áureas y alineación estética personalizada",
   "annotations": [
-    "Occlusal Plane Alignment",
-    "Incisal Edge Radius",
-    "Gingival Margin Symmetry",
-    "Root Axis Projection"
+    "Eje de Simetría Facial",
+    "Línea de la Sonrisa Dinámica",
+    "Proporción Incisal Áurea",
+    "Cénit Gingival"
   ],
   "materials": [
     "Invisalign",
-    "Dermapen",
-    "Resinas"
+    "Brackets metálicos",
+    "Implantes de titanio",
+    "Coronas y puentes"
   ],
   "locations": [
     "Ensanche Paraíso",
