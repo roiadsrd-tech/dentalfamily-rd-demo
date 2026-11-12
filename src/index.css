@@ -12,8 +12,8 @@
   --gold-accent: #C5A059;
   --border-hairline: rgba(15, 23, 42, 0.09);
   --border-hairline-dark: rgba(255, 255, 255, 0.12);
-  --font-display: 'Instrument Serif', Georgia, serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --container-max: 1240px;
 }
@@ -139,8 +139,9 @@ img {
 
 .site-brand-name {
   font-family: var(--font-display);
-  font-size: 1.35rem;
-  letter-spacing: -0.01em;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
   line-height: 1.1;
 }
@@ -302,10 +303,11 @@ img {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 6.5vw, 4.75rem);
-  line-height: 1.05;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.1;
   color: var(--text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   margin-bottom: 1.75rem;
 }
 
@@ -394,6 +396,8 @@ img {
 .philosophy-quote {
   font-family: var(--font-display);
   font-size: clamp(1.85rem, 4vw, 2.85rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1.25;
   color: var(--text-primary);
   margin-bottom: 2rem;
@@ -471,6 +475,8 @@ img {
 .service-row-title {
   font-family: var(--font-display);
   font-size: clamp(1.85rem, 3.5vw, 2.45rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1.15;
   color: var(--text-primary);
   margin-bottom: 0.6rem;
@@ -526,6 +532,8 @@ img {
 .service-detail-title {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
   line-height: 1.1;
   color: var(--text-primary);
   margin: 1.25rem 0 1rem 0;
@@ -616,6 +624,8 @@ img {
 .step-title {
   font-family: var(--font-display);
   font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1.2;
   margin-bottom: 0.75rem;
   color: var(--text-primary);
@@ -637,6 +647,8 @@ img {
 .contrast-headline {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
   line-height: 1.1;
   color: var(--text-light);
   margin-bottom: 1.5rem;

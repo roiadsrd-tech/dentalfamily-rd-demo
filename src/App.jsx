@@ -235,6 +235,8 @@ export default function App() {
               <h2 style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: '2rem',
+                fontWeight: 700,
+                letterSpacing: '-0.02em',
                 marginBottom: '1.5rem',
                 color: 'var(--text-primary)'
               }}>
@@ -263,6 +265,8 @@ export default function App() {
                 <h2 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: '2rem',
+                  fontWeight: 700,
+                  letterSpacing: '-0.02em',
                   marginBottom: '1.5rem',
                   color: 'var(--text-primary)'
                 }}>
@@ -299,6 +303,8 @@ export default function App() {
                   <h3 style={{
                     fontFamily: 'var(--font-display)',
                     fontSize: '1.9rem',
+                    fontWeight: 700,
+                    letterSpacing: '-0.02em',
                     lineHeight: 1.2,
                     marginBottom: '0.75rem',
                     color: 'var(--text-primary)'
@@ -439,7 +445,9 @@ export default function App() {
                 <h2 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)',
-                  lineHeight: 1.1,
+                  fontWeight: 800,
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1.15,
                   marginTop: '0.5rem',
                   color: 'var(--text-primary)'
                 }}>
@@ -506,6 +514,8 @@ export default function App() {
                 <h2 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)',
+                  fontWeight: 800,
+                  letterSpacing: '-0.03em',
                   lineHeight: 1.15,
                   marginTop: '0.5rem',
                   color: 'var(--text-primary)'
@@ -534,7 +544,9 @@ export default function App() {
                 <h2 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)',
-                  lineHeight: 1.1,
+                  fontWeight: 800,
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1.15,
                   marginTop: '0.5rem',
                   color: 'var(--text-primary)'
                 }}>
