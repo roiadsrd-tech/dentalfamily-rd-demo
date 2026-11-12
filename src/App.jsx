@@ -17,6 +17,14 @@ const CLINIC = {
   logo: "./media/logo_real.jpg"
 };
 
+const INSURANCE_PROVIDERS = [
+  { name: "Humano Seguros", logo: "./media/web_5.jpg" },
+  { name: "Seguros Reservas", logo: "./media/web_6.jpg" },
+  { name: "ARS Banco Central", logo: "./media/web_7.jpg" },
+  { name: "ARS Renacer", logo: "./media/web_8.jpg" },
+  { name: "ARS Monumental", logo: "./media/web_9.jpg" }
+];
+
 const SERVICES = [
   {
     slug: "ortodoncia-invisalign",
@@ -392,6 +400,29 @@ export default function App() {
                     <span className="meta-label">Horario de Consultas</span>
                     <span className="meta-value">Lun–Vie 9AM–6PM | Sáb 9AM–1PM</span>
                   </div>
+                </div>
+              </div>
+
+              {/* Insurances Bar / Cobertura Médica ARS */}
+              <div className="insurance-bar">
+                <div className="insurance-bar-label">
+                  <span>Seguros Médicos Aceptados</span>
+                </div>
+                <div className="insurance-logos-track">
+                  {INSURANCE_PROVIDERS.map((ins, idx) => (
+                    <div key={idx} className="insurance-logo-item" title={ins.name}>
+                      <img
+                        src={ins.logo}
+                        alt={ins.name}
+                        className="insurance-logo-img"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                      <span className="insurance-logo-fallback">{ins.name}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
