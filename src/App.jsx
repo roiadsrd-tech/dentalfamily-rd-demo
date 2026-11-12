@@ -1274,6 +1274,17 @@ const DATA = {
         "why": "Omitido automáticamente: no se inventan reseñas falsas cuando no existen testimonios públicos verificables."
       }
     ]
+  },
+  "builder": "template-fallback",
+  "outreachStructured": {
+    "whatsappPitch": "Hola equipo de *Dental Family Center*, ¿cómo están?\n\nEstuve analizando su portafolio en @dentalfamily.rd (Odontología Integral) y el nivel de ejecución que manejan en Ensanche Paraíso, Plaza Mezzaluna, Santo Domingo. Noté que en Instagram todo el tráfico llega directo al perfil o al link de contacto, pero no cuentan con una web editorial propia donde cada línea (Odontología Integral) y cada obra esté estructurada por separado.\n\nMe tomé el tiempo de investigar su portafolio real y armarles una propuesta funcional a la medida de *Dental Family Center*, usando únicamente sus obras y fotografías reales:\n\nhttps://dentalfamily-rd-demo.vercel.app\n\nIncluye páginas dedicadas por servicio (1 especialidades) y proyectos organizados para que sus clientes vean su trabajo antes de escribirles. ¿Tienen 5 minutos esta semana para mostrársela en una llamada rápida?",
+    "instagramDmPitch": "Hola equipo de Dental Family Center. Estuve viendo sus proyectos en @dentalfamily.rd y noté que no tienen un sitio web donde su portafolio de Odontología Integral esté organizado por especialidad. Les armé una demo completa con sus obras reales: https://dentalfamily-rd-demo.vercel.app — avísenme qué les parece.",
+    "callTips": [
+      "Menciona de entrada una obra específica real de su feed: \"sus proyectos recientes\" en Ensanche Paraíso, Plaza Mezzaluna, Santo Domingo. Eso demuestra que no es una plantilla masiva.",
+      "Muéstrales cómo dividiste su web exactamente en sus 1 líneas reales (Odontología Integral) con subpáginas dedicadas, en vez de mezclar todas las fotos.",
+      "Destaca que incluiste los materiales y especificaciones reales que ellos usan (Invisalign, Dermapen, Resinas)."
+    ],
+    "outreachMd": "# Estrategia de Cierre & Mensajes Personalizados — Dental Family Center (@dentalfamily.rd)\n\n## Puntos Clave para tu Llamada / Reunión en Persona\n1. Menciona de entrada una obra específica real de su feed: \"sus proyectos recientes\" en Ensanche Paraíso, Plaza Mezzaluna, Santo Domingo. Eso demuestra que no es una plantilla masiva.\n2. Muéstrales cómo dividiste su web exactamente en sus 1 líneas reales (Odontología Integral) con subpáginas dedicadas, en vez de mezclar todas las fotos.\n3. Destaca que incluiste los materiales y especificaciones reales que ellos usan (Invisalign, Dermapen, Resinas).\n\n## Mensaje para WhatsApp (809-231-2153)\n```text\nHola equipo de *Dental Family Center*, ¿cómo están?\n\nEstuve analizando su portafolio en @dentalfamily.rd (Odontología Integral) y el nivel de ejecución que manejan en Ensanche Paraíso, Plaza Mezzaluna, Santo Domingo. Noté que en Instagram todo el tráfico llega directo al perfil o al link de contacto, pero no cuentan con una web editorial propia donde cada línea (Odontología Integral) y cada obra esté estructurada por separado.\n\nMe tomé el tiempo de investigar su portafolio real y armarles una propuesta funcional a la medida de *Dental Family Center*, usando únicamente sus obras y fotografías reales:\n\nhttps://dentalfamily-rd-demo.vercel.app\n\nIncluye páginas dedicadas por servicio (1 especialidades) y proyectos organizados para que sus clientes vean su trabajo antes de escribirles. ¿Tienen 5 minutos esta semana para mostrársela en una llamada rápida?\n```\n\n## Mensaje para DM de Instagram (@dentalfamily.rd)\n```text\nHola equipo de Dental Family Center. Estuve viendo sus proyectos en @dentalfamily.rd y noté que no tienen un sitio web donde su portafolio de Odontología Integral esté organizado por especialidad. Les armé una demo completa con sus obras reales: https://dentalfamily-rd-demo.vercel.app — avísenme qué les parece.\n```\n"
   }
 };
 const MEDIA = {
@@ -1394,9 +1405,10 @@ export default function App() {
       </section>
 
       {/* 2. FRANJA DE RESPALDO / SEGUROS MÉDICOS RD */}
+      {(IS_HEALTH || (DATA.authorityStrip?.items || []).length > 0) && (
       <section className="authority-strip">
         <div className="container">
-          <div className="authority-label">{DATA.authorityStrip.title}</div>
+          <div className="authority-label">{DATA.authorityStrip?.title || (IS_HEALTH ? 'Aceptamos Seguros Médicos Nacionales e Internacionales' : 'Respaldo & Especialidades')}</div>
           <div className="marquee-track-wrap">
             <div className="marquee-track">
               {IS_HEALTH ? (
@@ -1412,7 +1424,7 @@ export default function App() {
                   </React.Fragment>
                 ))
               ) : (
-                [...DATA.authorityStrip.items, ...DATA.authorityStrip.items].map((item, i) => (
+                [...(DATA.authorityStrip?.items || []), ...(DATA.authorityStrip?.items || [])].map((item, i) => (
                   <span key={i} style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 600, color: 'var(--text-dark)' }}>
                     {item}
                   </span>
@@ -1422,6 +1434,7 @@ export default function App() {
           </div>
         </div>
       </section>
+      )}
 
       {/* 3. ÍNDICE EDITORIAL NUMERADO INTERACTIVO (CERO TARJETAS) */}
       <section id="especialidades" className="editorial-services-section">
@@ -1543,7 +1556,7 @@ export default function App() {
             </p>
 
             <div className="cases-editorial-list">
-              {DATA.cases.map((c, idx) => (
+              {(DATA.cases || []).map((c, idx) => (
                 <div key={idx} className="case-strip">
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '6px' }}>
                     <h3 style={{ fontSize: '1.45rem', color: 'var(--text-dark)' }}>{c.title}</h3>
@@ -1566,26 +1579,26 @@ export default function App() {
       <section id="especialista" className="specialist-section">
         <div className="container specialist-grid">
           <div className="specialist-portrait">
-            <img src={MEDIA.specialist} alt={DATA.specialist.name} loading="lazy" />
+            <img src={MEDIA.specialist} alt={DATA.specialist?.name || DATA.businessName} loading="lazy" />
           </div>
 
           <div>
             <h2 style={{ fontSize: 'clamp(2.5rem, 4.4vw, 3.9rem)', color: 'var(--text-dark)', marginBottom: '12px' }}>
-              {DATA.specialist.name}
+              {DATA.specialist?.name || DATA.businessName}
             </h2>
             <div style={{ fontFamily: 'var(--font-ui)', fontSize: '1.08rem', color: 'var(--accent)', fontWeight: 600, marginBottom: '28px' }}>
-              {DATA.specialist.role}
+              {DATA.specialist?.role || ''}
             </div>
 
             <p style={{ color: 'var(--text-dark)', fontSize: '1.16rem', marginBottom: '20px', lineHeight: 1.68 }}>
-              {DATA.specialist.bioParagraph1}
+              {DATA.specialist?.bioParagraph1 || ''}
             </p>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.08rem', lineHeight: 1.68 }}>
-              {DATA.specialist.bioParagraph2}
+              {DATA.specialist?.bioParagraph2 || ''}
             </p>
 
             <div className="credentials-row">
-              {DATA.specialist.credentials.map((cred, idx) => (
+              {(DATA.specialist?.credentials || []).map((cred, idx) => (
                 <div key={idx} className="credential-item">
                   {cred}
                 </div>
@@ -1593,7 +1606,7 @@ export default function App() {
             </div>
 
             <a href={waUrl} target="_blank" rel="noopener noreferrer" className="btn-brand">
-              Agendar Consulta con {DATA.specialist.name.split(' ').slice(0, 2).join(' ')} <ArrowUpRight size={18} />
+              Agendar Consulta con {(DATA.specialist?.name || DATA.businessName || '').split(' ').slice(0, 2).join(' ')} <ArrowUpRight size={18} />
             </a>
           </div>
         </div>
@@ -1713,7 +1726,7 @@ export default function App() {
                 Preguntas Frecuentes
               </h3>
               <div>
-                {DATA.faqs.map((f, idx) => {
+                {(DATA.faqs || []).map((f, idx) => {
                   const isOpen = openFaq === idx;
                   return (
                     <div key={idx} className="faq-item-row" onClick={() => setOpenFaq(isOpen ? -1 : idx)}>
@@ -1739,7 +1752,7 @@ export default function App() {
                 <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.85rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '20px' }}>
                   LO QUE DICEN NUESTROS PACIENTES EN SANTO DOMINGO
                 </div>
-                {DATA.testimonials.slice(0, 2).map((t, idx) => (
+                {(DATA.testimonials || []).slice(0, 2).map((t, idx) => (
                   <blockquote key={idx} style={{ marginBottom: '24px' }}>
                     <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontStyle: 'italic', color: '#FFFFFF', lineHeight: 1.4 }}>
                       “{t.quote}”
